@@ -81,6 +81,3 @@
 - 🔧 Transformações: Padronização de colunas, cálculo de métricas, modelagem em esquema estrela.  
 - ⚙️ Plataforma de ETL: Databricks (Spark SQL).
 
----
-
-Quer ajuda para colocar as consultas SQL também? 😄
