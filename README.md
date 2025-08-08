@@ -84,5 +84,3 @@ O projeto seguiu **boas práticas de ciência de dados**:
 - A base tratada é **ideal para desenvolvimento de modelos de regressão**, apoiando fabricantes e consumidores na escolha e otimização de veículos elétricos.
 
 ---
-
-## 📂 Estrutura do Projeto
