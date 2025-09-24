@@ -30,13 +30,13 @@ Essas hipóteses foram verificadas nas etapas seguintes.
   - **Moda** (categóricas).  
 
 ### 2.2 Distribuições Individuais
-- A autonomia apresentou **assimetria à direita**, com média ≈ **393 km**.  
+- A autonomia apresentou assimetria à direita, com média ≈ **393 km**.  
 - Ampla diversidade de modelos: desde compactos urbanos até veículos de alta performance.  
 
 ### 2.3 Análises Combinadas
 - **Correlação positiva** entre capacidade da bateria e autonomia.  
 - **Correlação negativa** entre eficiência energética e autonomia.  
-- Predominância do segmento **JC – Medium**, refletindo veículos de porte médio.  
+- Predominância do segmento JC – Medium, refletindo veículos de porte médio.  
 
 ---
 
@@ -49,7 +49,7 @@ Etapas realizadas para garantir consistência e adequação:
 - ✅ One-Hot Encoding para variáveis categóricas.  
 - ✅ Agrupamento de categorias pouco representadas.  
 
-➡️ O dataset final resultou em um **formato robusto e adequado para algoritmos de Machine Learning**.
+➡️ O dataset final resultou em um formato robusto e adequado para algoritmos de Machine Learning.
 
 ---
 
@@ -83,7 +83,7 @@ Etapas realizadas para garantir consistência e adequação:
 
 ## 📈 5. Avaliação de Resultados
 
-- **Métrica principal:** R², adequada para regressão (opcionalmente poderia ser complementada por MAE/RMSE).  
+- Métrica principal: R², adequada para regressão (opcionalmente poderia ser complementada por MAE/RMSE).  
 - Os resultados mostraram **consistência**, com pequenas diferenças entre treino e teste, descartando overfitting significativo.  
 - Comparações entre modelos revelaram evolução clara:  
   - Modelos lineares estáveis (**Ridge/Lasso**).  
@@ -110,7 +110,7 @@ O projeto seguiu boas práticas de ciência de dados:
 
 ## 🚗 Conclusão Técnica
 
-- A autonomia está fortemente relacionada à **capacidade da bateria**, ao **torque** e à **eficiência energética**.  
+- A autonomia está fortemente relacionada à capacidade da bateria, ao torque e à eficiência energética.  
 - O mercado é diverso, mas com predominância de veículos médios.  
 - O **Stacking Regressor (R² = 0.9845)** foi o modelo campeão, mostrando que a combinação de algoritmos supera soluções isoladas.  
 
@@ -127,7 +127,7 @@ O projeto seguiu boas práticas de ciência de dados:
 ## 🚀 Perspectivas Futuras
 
 - Inclusão de variáveis adicionais (peso, consumo em diferentes cenários).  
-- Aplicação de técnicas de **Explainable AI (SHAP, LIME)**.  
-- Integração em sistemas de apoio à decisão, como **estimadores de autonomia em catálogos digitais**.  
+- Aplicação de técnicas de Explainable AI (SHAP, LIME).  
+- Integração em sistemas de apoio à decisão, como estimadores de autonomia em catálogos digitais.  
 
 ---
