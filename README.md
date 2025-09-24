@@ -1,86 +1,133 @@
-# 🚗 Projeto: Análise e Preparação de Dados de Veículos Elétricos
+# 🚗 Projeto: Predição de Autonomia de Veículos Elétricos
 
-## 📌 Descrição
-Este projeto realizou uma **análise exploratória aprofundada** e um **pré-processamento rigoroso** do dataset **Electric Vehicles Specification 2025**, com o objetivo de investigar as relações entre as especificações técnicas dos veículos elétricos e sua autonomia, além de preparar os dados para modelagem preditiva.
+Este projeto realizou uma análise exploratória aprofundada e um rigoroso pré-processamento do dataset **Electric Vehicles Specification 2025**, com o objetivo de investigar as relações entre as especificações técnicas dos veículos elétricos e sua autonomia, além de preparar os dados para modelagem preditiva.
 
 ---
 
 ## 🔧 1. Entendimento do Problema e Hipóteses
-O problema foi definido como uma **tarefa de regressão supervisionada**, visando compreender e prever a **autonomia** dos veículos elétricos a partir de variáveis técnicas como:
 
-- **Velocidade Máxima**
-- **Capacidade da Bateria**
-- **Torque**
-- **Eficiência Energética**
+O problema foi definido como uma **tarefa de regressão supervisionada**, com foco em compreender e prever a autonomia dos veículos elétricos com base em variáveis técnicas como:
+
+- Velocidade Máxima  
+- Capacidade da Bateria  
+- Torque  
+- Eficiência Energética  
 
 **Hipóteses iniciais:**
-- Correlação **positiva** entre **capacidade da bateria** e **autonomia**.
-- Correlação **negativa** entre **eficiência energética** e **autonomia**.
+- Correlação **positiva** entre capacidade da bateria e autonomia.  
+- Correlação **negativa** entre eficiência energética e autonomia.  
 
-Essas hipóteses foram **tecnicamente embasadas** e **validadas** nas análises.
+Essas hipóteses foram verificadas nas etapas seguintes.
 
 ---
 
 ## 📊 2. Análise Exploratória de Dados (EDA)
 
 ### 2.1 Estrutura e Qualidade dos Dados
-- **478 instâncias** e **22 atributos** (numéricos e categóricos).
-- Valores faltantes identificados principalmente em:
-  - `numero_celulas`
-  - `torque_nm`
-  - `capacidade_reboque_kg`
-- **Tratamento aplicado**:
-  - Imputação de **mediana** para variáveis numéricas.
-  - Imputação de **moda** para variáveis categóricas.
+- Dataset com **478 instâncias e 22 atributos**, incluindo variáveis numéricas e categóricas.  
+- Valores faltantes em `numero_celulas`, `torque_nm` e `capacidade_reboque_kg` tratados com:  
+  - **Mediana** (numéricas).  
+  - **Moda** (categóricas).  
 
 ### 2.2 Distribuições Individuais
-- Autonomia com **assimetria à direita**, concentrada abaixo de **400 km**.
-- **Média** ≈ **393 km**, condizente com padrões de mercado.
-- Estatísticas descritivas revelaram grande diversidade — de modelos urbanos a veículos de alto desempenho.
+- A autonomia apresentou **assimetria à direita**, com média ≈ **393 km**.  
+- Ampla diversidade de modelos: desde compactos urbanos até veículos de alta performance.  
 
 ### 2.3 Análises Combinadas
-- **Matriz de correlação** e **pairplot** indicaram:
-  - Correlação **positiva**: Capacidade da bateria ↔ Autonomia.
-  - Correlação **negativa**: Eficiência energética ↔ Autonomia.
-- Análise categórica:
-  - Predomínio do segmento **JC - Medium** (porte médio).
-  - Diversidade de modelos: compactos, esportivos e de luxo.
+- **Correlação positiva** entre capacidade da bateria e autonomia.  
+- **Correlação negativa** entre eficiência energética e autonomia.  
+- Predominância do segmento **JC – Medium**, refletindo veículos de porte médio.  
 
 ---
 
 ## ⚙️ 3. Pré-Processamento de Dados
-Etapas realizadas para garantir dados prontos para modelagem:
 
-- ✅ Imputação de valores faltantes.
-- ✅ Normalização e padronização de variáveis numéricas.
-- ✅ One-Hot Encoding para variáveis categóricas.
-- ✅ Agrupamento de categorias pouco representadas.
+Etapas realizadas para garantir consistência e adequação:  
 
-**Resultado:** Dataset final com estrutura limpa, escalas compatíveis e formato numérico pronto para algoritmos de Machine Learning.
+- ✅ Imputação de valores faltantes.  
+- ✅ Normalização e padronização de variáveis numéricas.  
+- ✅ One-Hot Encoding para variáveis categóricas.  
+- ✅ Agrupamento de categorias pouco representadas.  
 
----
-
-## 🤖 4. Preparação para Modelagem Preditiva
-- Separação em **treino (80%)** e **teste (20%)** usando `train_test_split`.
-- `random_state=42` para garantir reprodutibilidade.
-- Distribuição da variável alvo (autonomia) **balanceada** entre treino e teste.
+➡️ O dataset final resultou em um **formato robusto e adequado para algoritmos de Machine Learning**.
 
 ---
 
-## ✅ 5. Considerações Finais
-O projeto seguiu **boas práticas de ciência de dados**:
+## 🤖 4. Modelagem e Treinamento
 
-- ✔️ Definição clara do problema.
-- ✔️ Análise exploratória robusta (gráficos + estatísticas).
-- ✔️ Tratamento completo de inconsistências e valores ausentes.
-- ✔️ Pré-processamento adequado.
-- ✔️ Preparação cuidadosa para modelagem supervisionada.
+### 4.1 Preparação
+- Divisão em treino (80%) e teste (20%), com `random_state=42`.  
+- Distribuição equilibrada da variável alvo entre os dois conjuntos.  
+
+### 4.2 Algoritmos Selecionados
+- **Ridge Regression** → estabilidade e regularização L2.  
+- **Lasso Regression** → seleção automática de variáveis.  
+- **Random Forest** → robustez em dados tabulares.  
+- **Gradient Boosting** → alto desempenho em relações complexas.  
+
+### 4.3 Ajustes e Otimização
+- Avaliação inicial indicou **R² elevado** em todos os modelos.  
+- **GridSearchCV** aplicado em Ridge, Lasso e Gradient Boosting.  
+- Destaque para o **Ridge** como modelo linear estável (R² Teste = 0.9794).  
+
+### 4.4 Métodos Avançados
+- **XGBoost** → melhor modelo individual (R² Teste = 0.9825).  
+- **HistGradientBoosting** e **LightGBM** → competitivos e robustos.  
+- **MLPRegressor** → desempenho inferior (R² Teste = 0.9485).  
+
+### 4.5 Comitê de Modelos (Ensembles)
+- **Voting Regressor** → R² Teste = 0.9840.  
+- **Stacking Regressor** (com Ridge como meta-modelo) → **melhor resultado, R² Teste = 0.9845**.  
 
 ---
 
-## 🚀 Conclusão Técnica
-- A **autonomia** dos veículos elétricos está **fortemente relacionada** à **capacidade da bateria**, ao **torque** e à **eficiência energética**.
-- O dataset reflete a **diversidade do mercado**: de modelos compactos urbanos a veículos premium de alta performance.
-- A base tratada é **ideal para desenvolvimento de modelos de regressão**, apoiando fabricantes e consumidores na escolha e otimização de veículos elétricos.
+## 📈 5. Avaliação de Resultados
+
+- **Métrica principal:** R², adequada para regressão (opcionalmente poderia ser complementada por MAE/RMSE).  
+- Os resultados mostraram **consistência**, com pequenas diferenças entre treino e teste, descartando overfitting significativo.  
+- Comparações entre modelos revelaram evolução clara:  
+  - Modelos lineares estáveis (**Ridge/Lasso**).  
+  - Árvores e ensembles robustos (**Random Forest, GB**).  
+  - Boosting avançado (**XGBoost**).  
+  - Ensembles (**Stacking**) com melhor desempenho geral.  
+
+👉 **Melhor solução encontrada:** *Stacking Regressor* (**R² Teste = 0.9845**), combinando estabilidade, poder preditivo e robustez.  
+
+---
+
+## ✅ 6. Considerações Finais
+
+O projeto seguiu boas práticas de ciência de dados:
+
+- ✔️ Definição clara do problema.  
+- ✔️ Análise exploratória robusta.  
+- ✔️ Tratamento completo de inconsistências e valores ausentes.  
+- ✔️ Pré-processamento adequado (normalização, codificação, limpeza).  
+- ✔️ Avaliação de múltiplos algoritmos.  
+- ✔️ Uso de ensembles para alcançar o melhor desempenho.  
+
+---
+
+## 🚗 Conclusão Técnica
+
+- A autonomia está fortemente relacionada à **capacidade da bateria**, ao **torque** e à **eficiência energética**.  
+- O mercado é diverso, mas com predominância de veículos médios.  
+- O **Stacking Regressor (R² = 0.9845)** foi o modelo campeão, mostrando que a combinação de algoritmos supera soluções isoladas.  
+
+---
+
+## 🔍 Limitações e Desafios
+
+- Dataset relativamente pequeno (**478 instâncias**).  
+- Viés de representatividade (predominância de veículos médios).  
+- Ausência de variáveis externas (peso, aerodinâmica, clima).  
+
+---
+
+## 🚀 Perspectivas Futuras
+
+- Inclusão de variáveis adicionais (peso, consumo em diferentes cenários).  
+- Aplicação de técnicas de **Explainable AI (SHAP, LIME)**.  
+- Integração em sistemas de apoio à decisão, como **estimadores de autonomia em catálogos digitais**.  
 
 ---
